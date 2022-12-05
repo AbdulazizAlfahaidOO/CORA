@@ -41,7 +41,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./index.php?page=new_user" class="nav-link nav-new_user tree-item">
-                  <i class="fas fa-angle-right nav-icon"></i>
+                  <i class="fas fa-plus nav-icon"></i>
                   <p>Add New</p>
                 </a>
               </li>
