@@ -18,7 +18,7 @@ include 'db_connect.php';
 				</div>
 				<div class="card-body">
                 <?php
-
+error_reporting(E_ALL ^ E_NOTICE); 
 $IP = $_SERVER['REMOTE_ADDR'];
 $ip = htmlentities($_GET["ip"]);
 $hostname = gethostbyaddr($_GET['ip']);
@@ -105,7 +105,7 @@ else {
 
 print ('<form method="get " action="">
 <input type="text" name="ip" id="ip" maxlength="15" placeholder="IP" title="Enter IP Address here" value="'.$IP.'" />
-<input type="submit" class="button" value="Lookup IP Address" />
+<input type="submit"  value="Lookup IP Address" class="btn btn-primary"/>
 </form>');
 echo "<br>Here's what you will find out:<br><br>
 <li>Your IP (but you can check other IP)</li>

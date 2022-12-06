@@ -230,7 +230,7 @@ $(function () {
 				if(resp == 1){
 					alert_toast('Data successfully saved',"success");
 					setTimeout(function(){
-						location.href = 'index.php?page=document_list'
+						location.href = 'ind.php?page=document_list'
 					},2000)
 				}
 			}

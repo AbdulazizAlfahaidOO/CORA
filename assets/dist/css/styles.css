@@ -100,6 +100,7 @@
   #viewer_modal img,#viewer_modal video{
     max-height: calc(100%);
     max-width: calc(100%);
+<<<<<<< Updated upstream
   }
 
   .card {
@@ -159,3 +160,6 @@
    -moz-transition: ease-in-out 0.2s all;
    -o-transition: ease-in-out 0.2s all;
  }
+=======
+  }
+>>>>>>> Stashed changes
