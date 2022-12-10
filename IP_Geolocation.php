@@ -1,5 +1,6 @@
 <?php
 include 'db_connect.php';
+$_GET['page'] = 'IP_Geolocation';
 
 ?>
 <div class="col-lg-12">
@@ -31,7 +32,7 @@ $more = json_decode(file_get_contents("http://ip-api.com/json/{$ip}?fields=statu
 
 if(isset($_GET['ip']))
 {
-echo '<form method="get" action="">
+echo '<form method="get" action="ind.php?page=IP_Geolocation">
 <input type="text" name="ip" id="ip" maxlength="15" placeholder="IP" title="Enter IP Address here" />
 <input type="submit" class="button" value="Lookup IP Address" />
 </form>';
@@ -77,7 +78,7 @@ echo "<br><b>Location: </b>" .$details->loc;
 
 echo <<<HTML
 <br><br><b>Geolocation Map</b>
-<form action="" method="post">
+<form action="ind.php?page=IP_Geolocation" method="post">
 <input type="text" name="city" value="$location->city" />
 <input type="submit" class="button" value="Show City on the Map" />
 </form>
@@ -91,7 +92,7 @@ echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/docum
 
 echo <<<HTML
 <br><b>Map Latitude Longitude</b>
-<form action="" method="post">
+<form action="ind.php?page=IP_Geolocation" method="post">
 <input type="text" name="address" value="$location->latitude" placeholder="latitude" title="Latitude" /><input type="text" name="address" value="$location->longitude" placeholder="longitude" title="Longitude" />
 </form>
 HTML;
@@ -103,7 +104,7 @@ echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/docum
 
 else {
 
-print ('<form method="get " action="">
+print ('<form method="get " action="ind.php?page=IP_Geolocation">
 <input type="text" name="ip" id="ip" maxlength="15" placeholder="IP" title="Enter IP Address here" value="'.$IP.'" />
 <input type="submit"  value="Lookup IP Address" class="btn btn-primary"/>
 </form>');
@@ -148,7 +149,7 @@ echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/docum
 if(isset($_POST['latitude'])){
 
 print ('<br><b>Map Latitude Longitude finder</b>
-<form action="" method="post">
+<form action="ind.php?page=IP_Geolocation" method="post">
 Enter a latitude/longitude:
 <input type="text" name="latitude" id="latitude" placeholder="latitude" /><input type="text" name="longitude" id="longitude" placeholder="longitude" />
 <input type="submit" class="button" value="Go to this Location" /><br />
@@ -164,7 +165,7 @@ echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/docum
 else {
 
 print ('<br><b>Map Latitude Longitude finder</b>
-<form action="" method="post">
+<form action="ind.php?page=IP_Geolocation" method="post">
 Enter a latitude/longitude:
 <input type="text" name="latitude" id="latitude" placeholder="latitude" /><input type="text" name="longitude" id="longitude" placeholder="longitude" />
 <input type="submit" class="button" value="Go to this Location" /><br />

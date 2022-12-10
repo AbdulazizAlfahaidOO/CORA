@@ -40,13 +40,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-<<<<<<< Updated upstream
-                <a href="./index.php?page=new_user" class="nav-link nav-new_user tree-item">
-                  <i class="fas fa-plus nav-icon"></i>
-=======
                 <a href="./ind.php?page=new_user" class="nav-link nav-new_user tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
->>>>>>> Stashed changes
                   <p>Add New</p>
                 </a>
               </li>

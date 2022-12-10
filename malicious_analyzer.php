@@ -17,6 +17,28 @@ include 'db_connect.php';
 					</div>
 				</div>
 				<div class="card-body">
+	<form action="malicious_analyzer.php" method="post">
+    <input type="text" value="" name="IOC"/>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form>
+
+<?php
+require_once('VirusTotalApiV2.php');
+
+/* Initialize the VirusTotalApi class. */
+$api = new VirusTotalAPIV2('e0e7385c28d6b70ed375e82dcf45a5c17fe544decfe3bd540ede911aae94e638');
+
+if(isset($_POST['IOC'])){
+    $IOC = $_POST['IOC'];
+
+/* Get a file report. */
+ $report = $api->getFileReport($IOC);
+ $api->displayResult($report);
+ print($api->getSubmissionDate($report) . '<br>');
+ print($api->getReportPermalink($report, TRUE) . '<br>');
+
+}
+?>
                 <dd></dd>
 						</dl>
 					</div>

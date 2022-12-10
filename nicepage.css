@@ -38434,13 +38434,13 @@ a.u-link.u-text-hover-grey-90:hover {
 }
 
 .u-header .u-sheet-1 {
-  min-height: 112px;
+  min-height: 176px;
 }
 
 .u-header .u-image-1 {
   width: 70px;
   height: 81px;
-  margin: 16px auto 0 -35px;
+  margin: 28px auto 0 -35px;
 }
 
 .u-header .u-logo-image-1 {
@@ -38448,27 +38448,36 @@ a.u-link.u-text-hover-grey-90:hover {
   height: 100%;
 }
 
-.u-header .u-menu-1 {
-  margin: -58px 0 38px auto;
-}
-
-.u-header .u-nav-1 {
+.u-header .u-btn-1 {
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  border-style: solid;
   font-weight: 700;
-  font-size: 1rem;
   text-transform: uppercase;
+  margin: -64px 67px 0 auto;
 }
 
-.u-header .u-nav-2 {
-  font-size: 1.25rem;
+.u-header .u-icon-1 {
+  font-size: 1.7143em;
+}
+
+.u-header .u-btn-2 {
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  border-style: solid;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: -64px -100px 60px auto;
+  padding: 18px 36px 18px 35px;
 }
 @media (max-width: 1199px) {
-  .u-header .u-menu-1 {
-    width: auto;
-    margin-top: -58px;
+  .u-header .u-btn-1 {
+    margin-top: -64px;
+    margin-right: 0;
   }
 
-  .u-header .u-nav-1 {
-    letter-spacing: normal;
+  .u-header .u-btn-2 {
+    margin-right: 0;
   }
 }
 

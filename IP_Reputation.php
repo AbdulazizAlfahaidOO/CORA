@@ -2,7 +2,7 @@
 
 
 
-<form action="IP_Reputation.php" method="post">
+<form action="ind.php?page=ip_reputation" method="post">
 <div class="row">
 		<div class="col-md-7">
 			<div class="card card-outline card-info">
@@ -15,9 +15,19 @@
 				<div class="card-body">
 <label >IP Reputation Search</label>
     <input type="text" placeholder="Enter Domain/IP Address" value="" name="ip"/>
-    <button type="submit" class="btn btn-primary">Lookup</button>
+    <button type="submit" name= "submit" class="btn btn-primary">Lookup</button>
 </form>
+</div>
+<?php
+error_reporting(E_ALL ^ E_NOTICE); 
+
+if(isset($_POST['submit'])){
+    print " Results :";
+     dnsbllookup($ip);
+}
+?>
 <body>
+    
 <?php
 
 /**
