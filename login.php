@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <?php 
 session_start();
 include('./db_connect.php');
@@ -8,42 +9,53 @@ include('./db_connect.php');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login | Online Document Sharing System</title>
  	
 
 <?php include('./header.php'); ?>
 <?php 
 if(isset($_SESSION['login_id']))
-header("location:index.php?page=home");
+header("location:ind.php?page=home");
 
 ?>
 
 </head>
 <style>
 	body{
+		
 		width: 100%;
 	    height: calc(100%);
 	    position: fixed;
 	    top:0;
 	    left: 0
-	    /*background: #007bff;*/
 	}
 	main#main{
 		width:100%;
 		height: calc(100%);
 		display: flex;
 	}
-
+	#content {
+        position: relative;
+    }
+    #content img {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+		width: 5%;
+        height: auto;
+    }
 </style>
 
-<body class="bg-dark">
+<body class="bg-white" >
 
+<div id="content">
+    <img src="images/CORA-LOGO.png" class="ribbon" alt="" />
+</div>
 
   <main id="main" >
   	
-  		<div class="align-self-center w-100">
-		<h4 class="text-white text-center"><b>CORA </b></h4>
-  		<div id="login-center" class="bg-dark row justify-content-center">
+  		<div class="align-self-center w-100" >
+		<h4 class="text-dark text-center"><b>CORA Log In</b></h4>
+  		<div id="login-center" class="bg-white row justify-content-center">
   			<div class="card col-md-4">
   				<div class="card-body">
   					<form id="login-form" >
@@ -84,7 +96,7 @@ header("location:index.php?page=home");
 			},
 			success:function(resp){
 				if(resp == 1){
-					location.href ='index.php?page=home';
+					location.href ='ind.php?page=home';
 				}else{
 					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
 					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');

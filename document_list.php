@@ -3,7 +3,7 @@
 	<div class="card card-outline card-primary">
 		<div class="card-header">
 			<div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_document"><i class="fa fa-plus"></i> Add New</a>
+				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./ind.php?page=new_document"><i class="fa fa-plus"></i> Add New</a>
 			</div>
 		</div>
 		<div class="card-body">
@@ -65,10 +65,10 @@
 						<td class="text-center">
 							
 		                    <div class="btn-group">
-		                        <a href="./index.php?page=edit_document&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-flat">
+		                        <a href="./ind.php?page=edit_document&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-flat">
 		                          <i class="fas fa-edit"></i>
 		                        </a>
-		                        <a  href="./index.php?page=view_document&id=<?php echo md5($row['id']) ?>" class="btn btn-info btn-flat">
+		                        <a  href="./ind.php?page=view_document&id=<?php echo md5($row['id']) ?>" class="btn btn-info btn-flat">
 		                          <i class="fas fa-eye"></i>
 		                        </a>
 		                        <button type="button" class="btn btn-danger btn-flat delete_document" data-id="<?php echo $row['id'] ?>">

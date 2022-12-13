@@ -1,6 +1,7 @@
 <?php
-
+error_reporting(E_ALL ^ E_NOTICE); 
 $domain = $_GET['domain'];
+
 
 // For the full list of TLDs/Whois servers see http://www.iana.org/domains/root/db/ and http://www.whois365.com/en/listtld/
 $whoisservers = array(
@@ -357,7 +358,9 @@ function QueryWhoisServer($whoisserver, $domain) {
 	return $res;
 }
 ?>
-    <div class="row">
+    
+        <form action="WHOIS_lookup.php">
+			<div class="row">
 		<div class="col-md-7">
 			<div class="card card-outline card-info">
 				<div class="card-header">
@@ -367,14 +370,12 @@ function QueryWhoisServer($whoisserver, $domain) {
 					</div>
 				</div>
 				<div class="card-body">
-                <body>
-        <form action="<?=$_SERVER['PHP_SELF'];?>">
-            <label for="domain">Domain/IP Address:</label>
+				<label for="domain">Domain/IP Address:</label>
             <input type="text" name="domain" id="domain" value="<?=$domain;?>" placeholder="Enter Domain/IP Address">
-            <button type="submit" class="btn btn-primary">Lookup</button>
-        </form>
-        
-        <?php
+			<button type="submit" class="btn btn-primary">Lookup</button>
+                <body>
+				<?php
+		
         if($domain) {
         	$domain = trim($domain);
         	if(substr(strtolower($domain), 0, 7) == "http://") $domain = substr($domain, 7);
@@ -398,3 +399,6 @@ function QueryWhoisServer($whoisserver, $domain) {
 				</div>
 			</div>
 		</div>
+        </form>
+
+        
