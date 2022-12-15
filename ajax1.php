@@ -58,8 +58,8 @@
  <!-- summernote -->
   <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
   </head>
-  <h1>Register </h1>
-<form action="./ajax1.php" method="post" enctype="multipart/form-data" >
+<h1>Register </h1>
+<form action="/ajax1.php" method="post" enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
 				<div class="row">
 					<div class="col-md-6 border-right">

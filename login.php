@@ -60,6 +60,13 @@ header("location:ind.php?page=home");
 		top: 35px;
 		color: #000000;
 	}
+	#eye-icon {
+		position: absolute;
+		top: 35px;
+		color: #000000;
+		right: 8px;
+		cursor: pointer;
+	}
 
 	.login__input {
 		border: none;
@@ -83,8 +90,7 @@ header("location:ind.php?page=home");
 <body class="bg-white" >
 
   <main id="main" >
-  	
-  		<div class="align-self-center w-100" >
+  	<div class="align-self-center w-100" >
   		<div id="login-center" class="row justify-content-center">
   			<div class="card col-lg-2 col-md-4 col-sm-10">
   				<div class="card-body">
@@ -97,7 +103,8 @@ header("location:ind.php?page=home");
 						</div>
 						<div class="login__field">
 							<i class="login__icon fas fa-lock"></i>
-							<input type="password" class="login__input" placeholder="Password">
+							<input type="password" id="password" class="login__input" placeholder="Password">
+							<i class="fa fa-eye-slash" id="eye-icon" onclick="onEyeClick()"></i>
 						</div>
   						<left><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></left><br>
 						<p><a href="/ajax1.php">Dont have an Account?</a></p>
@@ -105,7 +112,7 @@ header("location:ind.php?page=home");
   				</div>
   			</div>
   		</div>
-  		</div>
+  	</div>
   </main>
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
@@ -142,5 +149,25 @@ header("location:ind.php?page=home");
         val = val.replace(/[^0-9 \,]/, '');
         $(this).val(val)
     })
+	function onEyeClick(){
+            let ele = document.getElementById('eye-icon');
+            let password = document.getElementById('password');
+           
+           if(password.value.length > 0){
+            
+            document.getElementById('password').value = password.value;
+            password.focus();
+                //document.getElementById('password-label').classList.add('password-fixed');
+                if(ele.className == 'fa fa-eye-slash'){
+                    document.getElementById('eye-icon').classList.remove('fa-eye-slash');
+                    document.getElementById('eye-icon').classList.add('fa-eye');
+                    password.setAttribute('type','text');
+                }else{
+                    document.getElementById('eye-icon').classList.remove('fa-eye');
+                    document.getElementById('eye-icon').classList.add('fa-eye-slash');
+                    password.setAttribute('type','password');
+                }
+           }    
+        }
 </script>	
 </html>
