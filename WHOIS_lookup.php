@@ -360,6 +360,7 @@ function QueryWhoisServer($whoisserver, $domain) {
 ?>
     
         <form action="WHOIS_lookup.php">
+			
 			<div class="row">
 		<div class="col-md-7">
 			<div class="card card-outline card-info">
@@ -371,8 +372,10 @@ function QueryWhoisServer($whoisserver, $domain) {
 				</div>
 				<div class="card-body">
 				<label for="domain">Domain/IP Address:</label>
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
             <input type="text" name="domain" id="domain" value="<?=$domain;?>" placeholder="Enter Domain/IP Address">
 			<button type="submit" class="btn btn-primary">Lookup</button>
+</form>
                 <body>
 				<?php
 		

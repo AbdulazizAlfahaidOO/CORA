@@ -59,7 +59,7 @@
   <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
   </head>
   <h1>Register </h1>
-<form action="./register.php" method="post" enctype="multipart/form-data" >
+<form action="./ajax1.php" method="post" enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
 				<div class="row">
 					<div class="col-md-6 border-right">
@@ -90,12 +90,18 @@
 						<b class="text-muted">System Credentials</b>
                         <br>
 							<label class="control-label">Email</label>
-							<input type="email" class="form-control form-control-sm" name="email" required value="<?php echo isset($email) ? $email : '' ?>">
-							<small id="#msg"></small>
+							<input id="email" type="email" class="form-control form-control-sm" name="email" onkeyup="return EmailChange();" required value="<?php echo isset($email) ? $email : '' ?>">
+							<span id="strength-email"></span>
+
 						</div>
 						<div class="form-group">
 							<label class="control-label">Password</label>
-							<input type="password" class="form-control form-control-sm" name="password" <?php echo isset($id) ? "":'required' ?>>
+							<input type="password" id="password" class="form-control form-control-sm" name="password" onkeyup="return passwordChanged();" 
+							<?php 							
+							echo isset($id) ? "":'required'
+							?>
+							>
+							<span id="strength"></span>
 							<small><i><?php echo isset($id) ? "Leave this blank if you dont want to change you password":'' ?></i></small>
 						</div>
 						<div class="form-group">
@@ -126,7 +132,7 @@
 				</div>
 				<hr>
 				<div class="col-lg-12 text-right justify-content-center d-flex">
-					<button class="btn btn-primary mr-2" name="submit" type="submit"onclick="location = 'login.php'">Save</button>
+					<button class="btn btn-primary mr-2" name="submit" type="submit">Save</button>
 					<button class="btn btn-secondary" type="button" onclick="location.href = 'index.html'">Cancel</button>
 				</div>
 			</form>
@@ -135,7 +141,7 @@
 </div>
 
             
-            <?php
+<?php
 
 if(isset($_POST['submit'])){
     $conn= new mysqli('localhost','root','','odss_db')or die("Could not connect to mysql".mysqli_error($conn));
@@ -149,23 +155,48 @@ if(isset($_POST['submit'])){
     $contact = $_POST['contact'];
     $address = $_POST['address'];
     $email = $_POST['email'];
-    $password= md5($_POST['password']);
-   if($conn->query("INSERT INTO users VALUES (null, ' $firstname', '$lastname', '$middlename', '$contact', '$address', '$email', '$password', '2', '', current_timestamp())"))
-    print "<script>
-	alert('Account created successfully');
-    location.replace('login.php')
-    </script>";
-
-    else{
-              echo 'Error :(';
-    }
+	$password = $_POST['password'];
+    if(strlen($_POST["password"]) <= 8) {
+		print 
+		"<script>
+			alert('At least 8 characters');
+		</script>";
+	}elseif(!preg_match("#[0-9]+#",$password)) {
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Number!');
+		</script>";
+	}elseif(!preg_match("#[A-Z]+#",$password)){
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Capital Letter!');
+		</script>";
+	}elseif(!preg_match("#[a-z]+#",$password)){
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Lowercase Letter!');
+		</script>";
+	}else {
+		$password = md5($_POST['password']);
+		if($conn->query("INSERT INTO users VALUES (null, ' $firstname', '$lastname', '$middlename', '$contact', '$address', '$email', '$password', '2', '', current_timestamp())")){
+		print 
+		"<script>
+			alert('Account created successfully');
+			location.replace('login.php')
+		</script>";
+	
+		} else {
+			   echo 'Error :(';
+	 }
+	}
 }
 
 
 
 
 ?>
-<script>
+
+<script language="javascript">
 	$('[name="password"],[name="cpass"]').keyup(function(){
 		var pass = $('[name="password"]').val()
 		var cpass = $('[name="cpass"]').val()
@@ -179,6 +210,42 @@ if(isset($_POST['submit'])){
 			}
 		}
 	})
+	///^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+	function EmailChange(){
+		var strength = document.getElementById('strength-email');
+        var Regex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
+
+		var email = document.getElementById("email");
+		if(email.value.length == 0){
+			strength.innerHTML = '<span style"color:gray"><b>Please Enter Your Email !</b></span>';
+		}else if(Regex.test(email.value)) {
+			strength.innerHTML = '<span style = "color:green"> <b>Valid Email !</b></span>'
+
+		}else{
+			strength.innerHTML = '<span style = "color:orange"> <b>Not A valid Email !</b></span>'
+
+		}
+
+	}
+	function passwordChanged() {
+        var strength = document.getElementById('strength');
+        var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        var mediumRegex = new RegExp("^(?=.{8,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        var enoughRegex = new RegExp("(?=.{8,}).*", "g");
+        var pwd = document.getElementById("password");
+        if (pwd.value.length == 0) {
+            strength.innerHTML = '';
+        } else if (false == enoughRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style"color:gray"><b>Atleast 8 Character</b></span>';
+        } else if (strongRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:green">Strong!</span>';
+        } else if (mediumRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:orange">Medium! <b>You Need At Least A Captial Letter, & a Special Case (@,$,...)</b></span>';
+        } else {
+            strength.innerHTML = '<span style="color:red">Weak! <b>You Need At Least One Number</b></span>';
+        }
+    }
 	function displayImg(input,_this) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();

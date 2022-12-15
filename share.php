@@ -30,7 +30,7 @@
     <section class="content">
       <div class="container-fluid">
          <?php 
-          include 'view_document.php';
+          include 'view_malware.php';
           ?>
       </div><!--/. container-fluid -->
     </section>

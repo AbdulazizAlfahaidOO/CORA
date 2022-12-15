@@ -48,7 +48,9 @@ header("location:ind.php?page=home");
 <body class="bg-white" >
 
 <div id="content">
+	<a href="index.html">
     <img src="images/CORA-LOGO.png" class="ribbon" alt="" />
+	</a>
 </div>
 
   <main id="main" >

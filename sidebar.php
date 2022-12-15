@@ -21,7 +21,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item dropdown">
-            <a href="./" class="nav-link nav-home">
+            <a href="./ind.php?page=home" class="nav-link nav-home">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -54,7 +54,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link nav-is-tree nav-edit_document nav-view_document">
+            <a href="#" class="nav-link nav-is-tree nav-edit_malware nav-view_malware">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
                 Malware
@@ -63,13 +63,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./ind.php?page=new_document" class="nav-link nav-new_document tree-item">
+                <a href="./ind.php?page=new_malware" class="nav-link nav-new_malwar tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Add New</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./ind.php?page=document_list" class="nav-link nav-document_list tree-item">
+                <a href="./ind.php?page=malware_list" class="nav-link nav-malware_list tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>List</p>
                 </a>
@@ -77,7 +77,7 @@
             </ul>
           </li>  
            <li class="nav-item">
-            <a href="#" class="nav-link nav-is-tree nav-edit_document nav-view_document">
+            <a href="#" class="nav-link nav-is-tree nav-edit_malware nav-view_malware">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
                 Malware Repository
@@ -86,7 +86,7 @@
             </a>
         <?php else: ?>
           <li class="nav-item">
-            <a href="#" class="nav-link nav-is-tree nav-edit_document nav-view_document">
+            <a href="#" class="nav-link nav-is-tree nav-edit_malware nav-view_malware">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
                 Malware Repository
@@ -95,13 +95,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./ind.php?page=new_document" class="nav-link nav-new_document tree-item">
+                <a href="./ind.php?page=new_malware" class="nav-link nav-new_malware tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Add New</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./ind.php?page=document_list" class="nav-link nav-document_list tree-item">
+                <a href="./ind.php?page=malware_list" class="nav-link nav-malware_list tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>List</p>
                 </a>
@@ -109,7 +109,7 @@
             </ul>
           </li>  
           <li class="nav-item">
-            <a href="#" class="nav-link nav-is-tree nav-edit_document nav-view_document">
+            <a href="#" class="nav-link nav-is-tree nav-edit_malware nav-view_malware">
               <i class="nav-icon fa fa-flask"></i>
               <p>
                 Tools
@@ -118,27 +118,33 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./ind.php?page=IP_Geolocation" class="nav-link nav-new_document tree-item">
+                <a href="./ind.php?page=IP_Geolocation" class="nav-link nav-new_malware tree-item">
                   <i class="fa fa-location-arrow"></i>
                   <p>IP Geolocation</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./ind.php?page=IP_Reputation" class="nav-link nav-document_list tree-item">
+                <a href="./ind.php?page=IP_Reputation" class="nav-link nav-malware_list tree-item">
                   <i class="fa fa-user-times"></i>
                   <p>IP Reputation</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./ind.php?page=malicious_analyzer" class="nav-link nav-document_list tree-item">
+                <a href="./ind.php?page=hash_analyzer" class="nav-link nav-malware_list tree-item">
                   <i class="fa fa-bug"></i>
-                  <p>Malicious Analyzer</p>
+                  <p>Hash Analyzer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./ind.php?page=WHOIS_lookup" class="nav-link nav-document_list tree-item">
+                <a href="./ind.php?page=WHOIS_lookup" class="nav-link nav-malware_list tree-item">
                   <i class="fa fa-address-card"></i>
                   <p>WHOIS lookup</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./ind.php?page=UrlScanner" class="nav-link nav-document_list tree-item">
+                  <i class="fa fa-globe"></i>
+                  <p>Url Scanner</p>
                 </a>
               </li>
             </ul>

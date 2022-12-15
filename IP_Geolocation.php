@@ -85,8 +85,6 @@ echo <<<HTML
 HTML;
 
 if(isset($_POST['city'])){
-// echo "<iframe src='https://google-developers.appspot.com/maps/documentation/utils/geocoder/#q%3D{$city}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
-// echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder?hl=pt-br#q%3D{$city}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder/#q%3D{$city}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 }
 
@@ -97,8 +95,6 @@ echo <<<HTML
 </form>
 HTML;
 
-// echo "<iframe src='https://google-developers.appspot.com/maps/documentation/utils/geocoder/#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe><br>";
-// echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder?hl=pt-br#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe><br>";
 echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder/#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe><br>";
 }
 
@@ -141,8 +137,6 @@ echo "<br>Here's what you will find out:<br><br>
 if(isset($_GET['ip'])){
 
 if(isset($_POST['address'])){
-// echo "<iframe src='https://google-developers.appspot.com/maps/documentation/utils/geocoder/#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
-// echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder?hl=pt-br#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder/#q%3D{$location->latitude}%2520{$location->longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 }			
 
@@ -157,8 +151,6 @@ Enter a latitude/longitude:
 <small>e.g. 27.3717 -81.4306</small>
 </form>');
 
-// echo "<iframe src='https://google-developers.appspot.com/maps/documentation/utils/geocoder/#q%3D{$latitude}%2520{$longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
-// echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder?hl=pt-br#q%3D{$latitude}%2520{$longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 echo "<iframe src='https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/utils/geocoder/#q%3D{$latitude}%2520{$longitude}' width='100%' height='900' FRAMEBORDER=NO FRAMESPACING=0 BORDER=0 ></iframe>";
 }
 

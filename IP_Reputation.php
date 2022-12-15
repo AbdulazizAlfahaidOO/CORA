@@ -17,17 +17,28 @@
     <input type="text" placeholder="Enter Domain/IP Address" value="" name="ip"/>
     <button type="submit" name= "submit" class="btn btn-primary">Lookup</button>
 </form>
-</div>
-<?php
-error_reporting(E_ALL ^ E_NOTICE); 
+<span class="colortext">
+               
+                     <dd></dd>
+						</dl>
+					</div>
+					
+				</div>
+			</div>
 
-if(isset($_POST['submit'])){
-    print " Results :";
-     dnsbllookup($ip);
-}
 ?>
+<div class="col-md-7">
+			<div class="card card-outline card-info">
+				<div class="card-header">
+					<div class="card-tools">
+						<small class="text-muted">
+						</small>
+					</div>
+				</div>
+				<div class="card-body">
+                    
 <body>
-    
+
 <?php
 
 /**
