@@ -149,16 +149,40 @@ if(isset($_POST['submit'])){
     $contact = $_POST['contact'];
     $address = $_POST['address'];
     $email = $_POST['email'];
-    $password= md5($_POST['password']);
-   if($conn->query("INSERT INTO users VALUES (null, ' $firstname', '$lastname', '$middlename', '$contact', '$address', '$email', '$password', '2', '', current_timestamp())"))
-    print "<script>
-	alert('Account created successfully');
-    location.replace('login.php')
-    </script>";
-
-    else{
-              echo 'Error :(';
-    }
+	$password = $_POST['password'];
+    if(strlen($_POST["password"]) <= 8) {
+		print 
+		"<script>
+			alert('At least 8 characters');
+		</script>";
+	}elseif(!preg_match("#[0-9]+#",$password)) {
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Number!');
+		</script>";
+	}elseif(!preg_match("#[A-Z]+#",$password)){
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Capital Letter!');
+		</script>";
+	}elseif(!preg_match("#[a-z]+#",$password)){
+		print 
+		"<script>
+			alert('Your Password Must Contain At Least 1 Lowercase Letter!');
+		</script>";
+	}else {
+		$password = md5($_POST['password']);
+		if($conn->query("INSERT INTO users VALUES (null, ' $firstname', '$lastname', '$middlename', '$contact', '$address', '$email', '$password', '2', '', current_timestamp())")){
+		print 
+		"<script>
+			alert('Account created successfully');
+			location.replace('login.php')
+		</script>";
+	
+		} else {
+			   echo 'Error :(';
+	 }
+	}
 }
 
 
@@ -179,6 +203,24 @@ if(isset($_POST['submit'])){
 			}
 		}
 	})
+	function passwordChanged() {
+        var strength = document.getElementById('strength');
+        var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        var mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        var enoughRegex = new RegExp("(?=.{8,}).*", "g");
+        var pwd = document.getElementById("password");
+        if (pwd.value.length == 0) {
+            strength.innerHTML = '';
+        } else if (false == enoughRegex.test(pwd.value)) {
+            strength.innerHTML = 'Atleast 8 Character';
+        } else if (strongRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:green">Strong!</span>';
+        } else if (mediumRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:orange">Medium!</span>';
+        } else {
+            strength.innerHTML = '<span style="color:red">Weak!</span>';
+        }
+    }
 	function displayImg(input,_this) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
